@@ -12,10 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "uid": {
-          "type": "Text",
-          "config": { "label": "uid", "placeholder": "" }
-        },
         "cvrNumber": {
           "type": "Text",
           "config": { "label": "cvrNumber", "placeholder": "" }

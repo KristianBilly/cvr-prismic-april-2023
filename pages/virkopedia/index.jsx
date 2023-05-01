@@ -1,7 +1,3 @@
-import { useState } from 'react'
-import { VirkopediaArticle } from '../../components/virkopedia/virkopedia-article'
-import { VirkopediaTab } from '../../components/virkopedia/virkopedia-tab'
-import { API_ENDPOINT } from '../../constants/constants'
 import { createClient } from '../../prismicio'
 import { SliceZone } from '@prismicio/react'
 import { components } from '../../slices'

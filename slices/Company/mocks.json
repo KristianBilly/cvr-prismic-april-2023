@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"uid": {
-				"__TYPE__": "FieldContent",
-				"value": "dollar",
-				"type": "Text"
-			},
 			"address": {
 				"__TYPE__": "FieldContent",
 				"value": "tie",

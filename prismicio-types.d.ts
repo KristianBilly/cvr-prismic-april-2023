@@ -89,16 +89,6 @@ export type AllDocumentTypes = CompanyPageDocument | LandingPageDocument;
  */
 interface CompanySliceDefaultPrimary {
   /**
-   * uid field in *Company → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.primary.uid
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  uid: prismicT.KeyTextField;
-  /**
    * cvrNumber field in *Company → Primary*
    *
    * - **Field Type**: Text

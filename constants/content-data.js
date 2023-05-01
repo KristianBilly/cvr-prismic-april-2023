@@ -1,7 +1,7 @@
 export const contentData = {
   companiesData: [
     {
-      uid: '0',
+      uid: 'zervant',
       cvrNumber: '12345678',
       companyName: 'Zervant',
       address: 'Keilaranta 17C',
@@ -10,7 +10,7 @@ export const contentData = {
       status: 'Active',
     },
     {
-      uid: '1',
+      uid: 'kontist',
       cvrNumber: '12345678',
       companyName: 'Kontist',
       address: 'Kastanienallee 98B',
@@ -19,7 +19,7 @@ export const contentData = {
       status: 'Active',
     },
     {
-      uid: '2',
+      uid: 'billy',
       cvrNumber: '12345678',
       companyName: 'Billy',
       address: 'Vesterbrogade 1C, 6.',
@@ -28,16 +28,16 @@ export const contentData = {
       status: 'Active',
     },
     {
-      uid: '3',
+      uid: 'tellow',
       cvrNumber: '12345678',
       companyName: 'Tellow',
-      address: ' Danzigerkade 207',
+      address: 'Danzigerkade 207',
       postNoCity: '1013 AP Amsterdam',
       companyType: 'Limited company',
       status: 'Active',
     },
     {
-      uid: '4',
+      uid: 'salary',
       cvrNumber: '12345678',
       companyName: 'Salary',
       address: 'Vesterbrogade 1E, 6.',
@@ -45,13 +45,12 @@ export const contentData = {
       companyType: 'Limited Liability Company',
       status: 'Active',
     },
-
     {
-      uid: '5',
+      uid: 'ageras-finance',
       cvrNumber: '12345678',
       companyName: 'Ageras Finance',
-      address: 'Ahnqwstråde 6, st.',
-      postNoCity: '2500 Valby',
+      address: 'Vesterbrogade 1E, 6.',
+      postNoCity: '1620 København V',
       companyType: 'Limited Liability Company',
       status: 'Active',
     },
