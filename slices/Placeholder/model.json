@@ -1,0 +1,47 @@
+{
+  "id": "placeholder",
+  "type": "SharedSlice",
+  "name": "Placeholder",
+  "description": "Placeholder",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "numberOfColumns": {
+          "type": "Number",
+          "config": { "label": "numberOfColumns", "placeholder": "" }
+        },
+        "titleColumnOne": {
+          "type": "Text",
+          "config": { "label": "titleColumnOne", "placeholder": "" }
+        },
+        "contentColumnOne": {
+          "type": "Text",
+          "config": { "label": "contentColumnOne", "placeholder": "" }
+        },
+        "titleColumnTwo": {
+          "type": "Text",
+          "config": { "label": "titleColumnTwo", "placeholder": "" }
+        },
+        "contentColumnTwo": {
+          "type": "Text",
+          "config": { "label": "contentColumnTwo", "placeholder": "" }
+        },
+        "titleColumnThree": {
+          "type": "Text",
+          "config": { "label": "titleColumnThree", "placeholder": "" }
+        },
+        "contentColumnThree": {
+          "type": "Text",
+          "config": { "label": "contentColumnThree", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

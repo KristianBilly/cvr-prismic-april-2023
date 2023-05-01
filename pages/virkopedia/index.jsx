@@ -2,44 +2,28 @@ import { useState } from 'react'
 import { VirkopediaArticle } from '../../components/virkopedia/virkopedia-article'
 import { VirkopediaTab } from '../../components/virkopedia/virkopedia-tab'
 import { API_ENDPOINT } from '../../constants/constants'
+import { createClient } from '../../prismicio'
+import { SliceZone } from '@prismicio/react'
+import { components } from '../../slices'
+import Head from 'next/head'
 
-const Virkopedia = ({ articles }) => {
-  const [activeButtonIndex, setActiveButtonIndex] = useState(0)
-  const { content, title } = articles[activeButtonIndex]
-
+const Virkopedia = ({ page }) => {
   return (
-    <div className="virkopedia">
-      <h2>Virkopedia</h2>
-      <div className="virkopedia-container">
-        <div className="btn-container">
-          {articles.map(({ title }, index) => (
-            <VirkopediaTab
-              key={title + index}
-              setActiveButtonIndex={setActiveButtonIndex}
-              title={title}
-              index={index}
-              activeButtonIndex={activeButtonIndex}
-            />
-          ))}
-        </div>
-        <VirkopediaArticle
-          title={title}
-          content={content}
-        />
-      </div>
-    </div>
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+    />
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(API_ENDPOINT)
-  const data = await res.json()
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData })
 
-  const articles = data.virkopediaData
+  const page = await client.getByUID('landing_page', 'virkopedia')
 
   return {
     props: {
-      articles,
+      page,
     },
   }
 }

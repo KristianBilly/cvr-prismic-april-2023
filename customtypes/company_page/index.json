@@ -1,0 +1,15 @@
+{
+  "id": "company_page",
+  "label": "Company Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "company": { "type": "SharedSlice" } } }
+      }
+    }
+  }
+}

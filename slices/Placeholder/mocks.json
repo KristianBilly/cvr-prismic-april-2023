@@ -1,0 +1,70 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"numberOfColumns",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "55",
+							"type": "Number"
+						}
+					],
+					[
+						"titleColumnOne",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "move",
+							"type": "Text"
+						}
+					],
+					[
+						"contentColumnOne",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "chicken",
+							"type": "Text"
+						}
+					],
+					[
+						"titleColumnTwo",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "shot",
+							"type": "Text"
+						}
+					],
+					[
+						"contentColumnTwo",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "to",
+							"type": "Text"
+						}
+					],
+					[
+						"titleColumnThree",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "cook",
+							"type": "Text"
+						}
+					],
+					[
+						"contentColumnThree",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "safety",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

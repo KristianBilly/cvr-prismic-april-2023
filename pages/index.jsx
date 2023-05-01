@@ -1,29 +1,24 @@
-import { PlaceholderRow } from '../components/placeholder/placeholder-row'
+import { SliceZone } from '@prismicio/react'
 import { API_ENDPOINT } from '../constants/constants'
+import { components } from '../slices'
+import { createClient } from '../prismicio'
 
-const Index = ({ landingPageRows }) => {
+const Index = ({ page }) => {
   return (
-    <>
-      {landingPageRows.map((row, index) => {
-        return (
-          <PlaceholderRow
-            key={row.contentColumnOne + index}
-            row={row}
-          />
-        )
-      })}
-    </>
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+    />
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(API_ENDPOINT)
-  const data = await res.json()
-  const landingPageRows = data.landingPageData
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData })
+  const page = await client.getByUID('landing_page', 'home')
 
   return {
     props: {
-      landingPageRows,
+      page,
     },
   }
 }

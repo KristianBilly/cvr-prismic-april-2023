@@ -1,0 +1,53 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Behavior"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Excepteur qui adipisicing ut in mollit nulla irure."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "pictured",
+              "type": "Text"
+            }
+          ],
+          [
+            "content",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "slide",
+              "type": "Text"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

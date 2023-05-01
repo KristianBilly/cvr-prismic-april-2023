@@ -1,0 +1,43 @@
+{
+  "id": "company",
+  "type": "SharedSlice",
+  "name": "Company",
+  "description": "Company",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "uid": {
+          "type": "Text",
+          "config": { "label": "uid", "placeholder": "" }
+        },
+        "cvrnumber": {
+          "type": "Text",
+          "config": { "label": "cvrNumber", "placeholder": "" }
+        },
+        "companyname": {
+          "type": "Text",
+          "config": { "label": "companyName", "placeholder": "" }
+        },
+        "address": {
+          "type": "Text",
+          "config": { "label": "address", "placeholder": "" }
+        },
+        "postnocity": {
+          "type": "Text",
+          "config": { "label": "postNoCity", "placeholder": "" }
+        },
+        "companytype": {
+          "type": "Text",
+          "config": { "label": "companyType", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

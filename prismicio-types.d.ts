@@ -4,93 +4,372 @@ import type * as prismicT from "@prismicio/types";
 import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = {
-    [KeyType in keyof T]: T[KeyType];
+  [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Page documents */
-interface PageDocumentData {
-    /**
-     * Title field in *Page*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page.title
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    title: prismicT.TitleField;
-    /**
-     * Slice Zone field in *Page*
-     *
-     * - **Field Type**: Slice Zone
-     * - **Placeholder**: *None*
-     * - **API ID Path**: page.slices[]
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-     *
-     */
-    slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+/** Content for Company Page documents */
+interface CompanyPageDocumentData {
+  /**
+   * Slice Zone field in *Company Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<CompanyPageDocumentDataSlicesSlice>;
 }
 /**
- * Slice for *Page → Slice Zone*
+ * Slice for *Company Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type CompanyPageDocumentDataSlicesSlice = CompanySlice;
 /**
- * Page document from Prismic
+ * Company Page document from Prismic
  *
- * - **API ID**: `page`
+ * - **API ID**: `company_page`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-export type AllDocumentTypes = PageDocument;
+export type CompanyPageDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithoutUID<
+    Simplify<CompanyPageDocumentData>,
+    "company_page",
+    Lang
+  >;
+/** Content for Landing Page documents */
+type LandingPageDocumentData = Record<string, never>;
 /**
- * Primary content in RichText → Primary
+ * Landing Page document from Prismic
+ *
+ * - **API ID**: `landing_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LandingPageDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithUID<
+    Simplify<LandingPageDocumentData>,
+    "landing_page",
+    Lang
+  >;
+export type AllDocumentTypes = CompanyPageDocument | LandingPageDocument;
+/**
+ * Item in Company → Items
  *
  */
-interface RichTextSliceDefaultPrimary {
-    /**
-     * Content field in *RichText → Primary*
-     *
-     * - **Field Type**: Rich Text
-     * - **Placeholder**: Lorem ipsum...
-     * - **API ID Path**: rich_text.primary.content
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    content: prismicT.RichTextField;
+export interface CompanySliceDefaultItem {
+  /**
+   * uid field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].uid
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  uid: prismicT.KeyTextField;
+  /**
+   * cvrNumber field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].cvrnumber
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  cvrnumber: prismicT.KeyTextField;
+  /**
+   * companyName field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].companyname
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companyname: prismicT.KeyTextField;
+  /**
+   * address field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].address
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  address: prismicT.KeyTextField;
+  /**
+   * postNoCity field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].postnocity
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  postnocity: prismicT.KeyTextField;
+  /**
+   * companyType field in *Company → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.items[].companytype
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companytype: prismicT.KeyTextField;
 }
 /**
- * Default variation for RichText Slice
+ * Default variation for Company Slice
  *
  * - **API ID**: `default`
- * - **Description**: `RichText`
+ * - **Description**: `Default`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type RichTextSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<RichTextSliceDefaultPrimary>, never>;
+export type CompanySliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<CompanySliceDefaultItem>
+>;
 /**
- * Slice variation for *RichText*
+ * Slice variation for *Company*
  *
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type CompanySliceVariation = CompanySliceDefault;
 /**
- * RichText Shared Slice
+ * Company Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: `RichText`
+ * - **API ID**: `company`
+ * - **Description**: `Company`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type RichTextSlice = prismicT.SharedSlice<"rich_text", RichTextSliceVariation>;
+export type CompanySlice = prismicT.SharedSlice<
+  "company",
+  CompanySliceVariation
+>;
+/**
+ * Item in Placeholder → Items
+ *
+ */
+export interface PlaceholderSliceDefaultItem {
+  /**
+   * numberOfColumns field in *Placeholder → Items*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].numberOfColumns
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  numberOfColumns: prismicT.NumberField;
+  /**
+   * titleColumnOne field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].titleColumnOne
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  titleColumnOne: prismicT.KeyTextField;
+  /**
+   * contentColumnOne field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].contentColumnOne
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  contentColumnOne: prismicT.KeyTextField;
+  /**
+   * titleColumnTwo field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].titleColumnTwo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  titleColumnTwo: prismicT.KeyTextField;
+  /**
+   * contentColumnTwo field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].contentColumnTwo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  contentColumnTwo: prismicT.KeyTextField;
+  /**
+   * titleColumnThree field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].titleColumnThree
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  titleColumnThree: prismicT.KeyTextField;
+  /**
+   * contentColumnThree field in *Placeholder → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: placeholder.items[].contentColumnThree
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  contentColumnThree: prismicT.KeyTextField;
+}
+/**
+ * Default variation for Placeholder Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PlaceholderSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<PlaceholderSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Placeholder*
+ *
+ */
+type PlaceholderSliceVariation = PlaceholderSliceDefault;
+/**
+ * Placeholder Shared Slice
+ *
+ * - **API ID**: `placeholder`
+ * - **Description**: `Placeholder`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PlaceholderSlice = prismicT.SharedSlice<
+  "placeholder",
+  PlaceholderSliceVariation
+>;
+/**
+ * Primary content in Virkepedia → Primary
+ *
+ */
+interface VirkepediaSliceDefaultPrimary {
+  /**
+   * Title field in *Virkepedia → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: This is where it all begins...
+   * - **API ID Path**: virkepedia.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismicT.TitleField;
+  /**
+   * Description field in *Virkepedia → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: A nice description of your feature
+   * - **API ID Path**: virkepedia.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismicT.RichTextField;
+}
+/**
+ * Item in Virkepedia → Items
+ *
+ */
+export interface VirkepediaSliceDefaultItem {
+  /**
+   * title field in *Virkepedia → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: virkepedia.items[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * content field in *Virkepedia → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: virkepedia.items[].content
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  content: prismicT.KeyTextField;
+}
+/**
+ * Default variation for Virkepedia Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Virkepedia`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type VirkepediaSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<VirkepediaSliceDefaultPrimary>,
+  Simplify<VirkepediaSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Virkepedia*
+ *
+ */
+type VirkepediaSliceVariation = VirkepediaSliceDefault;
+/**
+ * Virkepedia Shared Slice
+ *
+ * - **API ID**: `virkepedia`
+ * - **Description**: `Virkepedia`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type VirkepediaSlice = prismicT.SharedSlice<
+  "virkepedia",
+  VirkepediaSliceVariation
+>;
 declare module "@prismicio/client" {
-    interface CreateClient {
-        (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
-    }
-    namespace Content {
-        export type { PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, AllDocumentTypes, RichTextSliceDefaultPrimary, RichTextSliceDefault, RichTextSliceVariation, RichTextSlice };
-    }
+  interface CreateClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options?: prismic.ClientConfig
+    ): prismic.Client<AllDocumentTypes>;
+  }
+  namespace Content {
+    export type {
+      CompanyPageDocumentData,
+      CompanyPageDocumentDataSlicesSlice,
+      CompanyPageDocument,
+      LandingPageDocumentData,
+      LandingPageDocument,
+      AllDocumentTypes,
+      CompanySliceDefaultItem,
+      CompanySliceDefault,
+      CompanySliceVariation,
+      CompanySlice,
+      PlaceholderSliceDefaultItem,
+      PlaceholderSliceDefault,
+      PlaceholderSliceVariation,
+      PlaceholderSlice,
+      VirkepediaSliceDefaultPrimary,
+      VirkepediaSliceDefaultItem,
+      VirkepediaSliceDefault,
+      VirkepediaSliceVariation,
+      VirkepediaSlice,
+    };
+  }
 }
