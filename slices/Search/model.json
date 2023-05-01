@@ -1,0 +1,47 @@
+{
+  "id": "search",
+  "type": "SharedSlice",
+  "name": "Search",
+  "description": "Search",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "uid": {
+          "type": "Text",
+          "config": { "label": "uid", "placeholder": "" }
+        },
+        "cvrNumber": {
+          "type": "Text",
+          "config": { "label": "cvrNumber", "placeholder": "" }
+        },
+        "companyName": {
+          "type": "Text",
+          "config": { "label": "companyName", "placeholder": "" }
+        },
+        "address": {
+          "type": "Text",
+          "config": { "label": "address", "placeholder": "" }
+        },
+        "postNoCity": {
+          "type": "Text",
+          "config": { "label": "postNoCity", "placeholder": "" }
+        },
+        "companyType": {
+          "type": "Text",
+          "config": { "label": "companyType", "placeholder": "" }
+        },
+        "status": {
+          "type": "Text",
+          "config": { "label": "status", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

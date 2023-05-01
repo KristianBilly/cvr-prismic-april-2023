@@ -5,5 +5,6 @@ import dynamic from "next/dynamic";
 export const components = {
   company: dynamic(() => import("./Company")),
   placeholder: dynamic(() => import("./Placeholder")),
+  search: dynamic(() => import("./Search")),
   virkepedia: dynamic(() => import("./Virkepedia")),
 };

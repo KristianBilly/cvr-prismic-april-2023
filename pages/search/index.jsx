@@ -1,37 +1,26 @@
-import { TextInput } from '../../components/other/text-input'
-import { SearchResults } from '../../components/search/search-results'
-import { API_ENDPOINT } from '../../constants/constants'
-import { useSiteContext } from '../../context/site-context'
+import { SliceZone } from '@prismicio/react'
 
-const SearchWrapper = ({ allCompanies }) => {
-  const { searchField, setSearchField } = useSiteContext()
+import { createClient } from '../../prismicio'
+import { components } from '../../slices'
 
+const SearchWrapper = ({ page }) => {
+  console.log(page)
   return (
-    <div className="search">
-      <div className="search-container">
-        <h2 className="search-title">Search the CVR</h2>
-        <TextInput
-          search
-          type="search"
-          value={searchField}
-          placeholder="Write Company Name, Cvr Number or Address"
-          onChange={(e) => setSearchField(e.target.value)}
-          autoFocus
-        />
-        <SearchResults allCompanies={allCompanies} />
-      </div>
-    </div>
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+    />
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(API_ENDPOINT)
-  const data = await res.json()
-  const allCompanies = data.companiesData
+export const getStaticProps = async ({ previewData }) => {
+  const client = createClient({ previewData })
+
+  const page = await client.getByUID('landing_page', 'search')
 
   return {
     props: {
-      allCompanies,
+      page,
     },
   }
 }

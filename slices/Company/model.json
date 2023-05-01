@@ -11,7 +11,32 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "uid": {
+          "type": "Text",
+          "config": { "label": "uid", "placeholder": "" }
+        },
+        "cvrnumber": {
+          "type": "Text",
+          "config": { "label": "cvrNumber", "placeholder": "" }
+        },
+        "companyname": {
+          "type": "Text",
+          "config": { "label": "companyName", "placeholder": "" }
+        },
+        "address": {
+          "type": "Text",
+          "config": { "label": "address", "placeholder": "" }
+        },
+        "postnocity": {
+          "type": "Text",
+          "config": { "label": "postNoCity", "placeholder": "" }
+        },
+        "companytype": {
+          "type": "Text",
+          "config": { "label": "companyType", "placeholder": "" }
+        }
+      },
       "items": {
         "uid": {
           "type": "Text",

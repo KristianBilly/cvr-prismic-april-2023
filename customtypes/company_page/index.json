@@ -8,7 +8,14 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "company": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "company": { "type": "SharedSlice" },
+            "virkepedia": { "type": "SharedSlice" },
+            "placeholder": { "type": "SharedSlice" },
+            "search": { "type": "SharedSlice" }
+          }
+        }
       }
     }
   }

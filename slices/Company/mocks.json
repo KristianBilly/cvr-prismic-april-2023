@@ -2,7 +2,38 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"uid": {
+				"__TYPE__": "FieldContent",
+				"value": "dollar",
+				"type": "Text"
+			},
+			"cvrnumber": {
+				"__TYPE__": "FieldContent",
+				"value": "silk",
+				"type": "Text"
+			},
+			"companyname": {
+				"__TYPE__": "FieldContent",
+				"value": "handle",
+				"type": "Text"
+			},
+			"address": {
+				"__TYPE__": "FieldContent",
+				"value": "tie",
+				"type": "Text"
+			},
+			"postnocity": {
+				"__TYPE__": "FieldContent",
+				"value": "lead",
+				"type": "Text"
+			},
+			"companytype": {
+				"__TYPE__": "FieldContent",
+				"value": "enter",
+				"type": "Text"
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",

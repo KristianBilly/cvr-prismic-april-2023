@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 import { VirkopediaTab } from '../../components/virkopedia/virkopedia-tab'
 import { VirkopediaArticle } from '../../components/virkopedia/virkopedia-article'
 
-/**
- * @typedef {import("@prismicio/client").Content.VirkepediaSlice} VirkepediaSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<VirkepediaSlice>} VirkepediaProps
- * @param { VirkepediaProps }
- */
 const Virkepedia = ({ slice }) => {
   const [activeButtonIndex, setActiveButtonIndex] = useState(0)
   const { content, title } = slice.items[activeButtonIndex]

@@ -1,5 +1,4 @@
 import { SliceZone } from '@prismicio/react'
-import { API_ENDPOINT } from '../constants/constants'
 import { components } from '../slices'
 import { createClient } from '../prismicio'
 

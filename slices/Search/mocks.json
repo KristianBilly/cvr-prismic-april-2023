@@ -1,0 +1,70 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"uid",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "sentence",
+							"type": "Text"
+						}
+					],
+					[
+						"address",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "friendly",
+							"type": "Text"
+						}
+					],
+					[
+						"cvrNumber",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "trip",
+							"type": "Text"
+						}
+					],
+					[
+						"companyName",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "corn",
+							"type": "Text"
+						}
+					],
+					[
+						"postNoCity",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "voyage",
+							"type": "Text"
+						}
+					],
+					[
+						"companyType",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "edge",
+							"type": "Text"
+						}
+					],
+					[
+						"status",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "through",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

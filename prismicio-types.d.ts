@@ -24,7 +24,11 @@ interface CompanyPageDocumentData {
  * Slice for *Company Page → Slice Zone*
  *
  */
-type CompanyPageDocumentDataSlicesSlice = CompanySlice;
+type CompanyPageDocumentDataSlicesSlice =
+  | CompanySlice
+  | VirkepediaSlice
+  | PlaceholderSlice
+  | SearchSlice;
 /**
  * Company Page document from Prismic
  *
@@ -41,7 +45,28 @@ export type CompanyPageDocument<Lang extends string = string> =
     Lang
   >;
 /** Content for Landing Page documents */
-type LandingPageDocumentData = Record<string, never>;
+interface LandingPageDocumentData {
+  /**
+   * Slice Zone field in *Landing Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<LandingPageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Landing Page → Slice Zone*
+ *
+ */
+type LandingPageDocumentDataSlicesSlice =
+  | PlaceholderSlice
+  | VirkepediaSlice
+  | CompanySlice
+  | SearchSlice;
 /**
  * Landing Page document from Prismic
  *
@@ -58,6 +83,72 @@ export type LandingPageDocument<Lang extends string = string> =
     Lang
   >;
 export type AllDocumentTypes = CompanyPageDocument | LandingPageDocument;
+/**
+ * Primary content in Company → Primary
+ *
+ */
+interface CompanySliceDefaultPrimary {
+  /**
+   * uid field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.uid
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  uid: prismicT.KeyTextField;
+  /**
+   * cvrNumber field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.cvrnumber
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  cvrnumber: prismicT.KeyTextField;
+  /**
+   * companyName field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.companyname
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companyname: prismicT.KeyTextField;
+  /**
+   * address field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.address
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  address: prismicT.KeyTextField;
+  /**
+   * postNoCity field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.postnocity
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  postnocity: prismicT.KeyTextField;
+  /**
+   * companyType field in *Company → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company.primary.companytype
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companytype: prismicT.KeyTextField;
+}
 /**
  * Item in Company → Items
  *
@@ -134,7 +225,7 @@ export interface CompanySliceDefaultItem {
  */
 export type CompanySliceDefault = prismicT.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<CompanySliceDefaultPrimary>,
   Simplify<CompanySliceDefaultItem>
 >;
 /**
@@ -261,6 +352,109 @@ export type PlaceholderSlice = prismicT.SharedSlice<
   PlaceholderSliceVariation
 >;
 /**
+ * Item in Search → Items
+ *
+ */
+export interface SearchSliceDefaultItem {
+  /**
+   * uid field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].uid
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  uid: prismicT.KeyTextField;
+  /**
+   * cvrNumber field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].cvrNumber
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  cvrNumber: prismicT.KeyTextField;
+  /**
+   * companyName field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].companyName
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companyName: prismicT.KeyTextField;
+  /**
+   * address field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].address
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  address: prismicT.KeyTextField;
+  /**
+   * postNoCity field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].postNoCity
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  postNoCity: prismicT.KeyTextField;
+  /**
+   * companyType field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].companyType
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  companyType: prismicT.KeyTextField;
+  /**
+   * status field in *Search → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search.items[].status
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  status: prismicT.KeyTextField;
+}
+/**
+ * Default variation for Search Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SearchSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SearchSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Search*
+ *
+ */
+type SearchSliceVariation = SearchSliceDefault;
+/**
+ * Search Shared Slice
+ *
+ * - **API ID**: `search`
+ * - **Description**: `Search`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SearchSlice = prismicT.SharedSlice<"search", SearchSliceVariation>;
+/**
  * Primary content in Virkepedia → Primary
  *
  */
@@ -355,8 +549,10 @@ declare module "@prismicio/client" {
       CompanyPageDocumentDataSlicesSlice,
       CompanyPageDocument,
       LandingPageDocumentData,
+      LandingPageDocumentDataSlicesSlice,
       LandingPageDocument,
       AllDocumentTypes,
+      CompanySliceDefaultPrimary,
       CompanySliceDefaultItem,
       CompanySliceDefault,
       CompanySliceVariation,
@@ -365,6 +561,10 @@ declare module "@prismicio/client" {
       PlaceholderSliceDefault,
       PlaceholderSliceVariation,
       PlaceholderSlice,
+      SearchSliceDefaultItem,
+      SearchSliceDefault,
+      SearchSliceVariation,
+      SearchSlice,
       VirkepediaSliceDefaultPrimary,
       VirkepediaSliceDefaultItem,
       VirkepediaSliceDefault,
