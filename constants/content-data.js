@@ -33,7 +33,7 @@ export const contentData = {
       companyName: 'Tellow',
       address: ' Danzigerkade 207',
       postNoCity: '1013 AP Amsterdam',
-      companyType: '	Limited company',
+      companyType: 'Limited company',
       status: 'Active',
     },
     {

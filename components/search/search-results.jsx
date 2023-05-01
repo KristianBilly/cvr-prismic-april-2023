@@ -29,8 +29,8 @@ export const SearchResults = ({ allCompanies }) => {
 
           return (
             <SearchCompany
+              uid={company.uid}
               key={index}
-              index={index}
               convertedData={convertedData}
             />
           )

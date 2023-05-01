@@ -16,11 +16,11 @@
           "type": "Text",
           "config": { "label": "uid", "placeholder": "" }
         },
-        "cvrnumber": {
+        "cvrNumber": {
           "type": "Text",
           "config": { "label": "cvrNumber", "placeholder": "" }
         },
-        "companyname": {
+        "companyName": {
           "type": "Text",
           "config": { "label": "companyName", "placeholder": "" }
         },
@@ -28,41 +28,20 @@
           "type": "Text",
           "config": { "label": "address", "placeholder": "" }
         },
-        "postnocity": {
+        "postNoCity": {
           "type": "Text",
           "config": { "label": "postNoCity", "placeholder": "" }
         },
-        "companytype": {
+        "companyType": {
           "type": "Text",
           "config": { "label": "companyType", "placeholder": "" }
+        },
+        "status": {
+          "type": "Text",
+          "config": { "label": "status", "placeholder": "" }
         }
       },
-      "items": {
-        "uid": {
-          "type": "Text",
-          "config": { "label": "uid", "placeholder": "" }
-        },
-        "cvrnumber": {
-          "type": "Text",
-          "config": { "label": "cvrNumber", "placeholder": "" }
-        },
-        "companyname": {
-          "type": "Text",
-          "config": { "label": "companyName", "placeholder": "" }
-        },
-        "address": {
-          "type": "Text",
-          "config": { "label": "address", "placeholder": "" }
-        },
-        "postnocity": {
-          "type": "Text",
-          "config": { "label": "postNoCity", "placeholder": "" }
-        },
-        "companytype": {
-          "type": "Text",
-          "config": { "label": "companyType", "placeholder": "" }
-        }
-      }
+      "items": {}
     }
   ]
 }

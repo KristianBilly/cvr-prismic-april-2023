@@ -8,85 +8,41 @@
 				"value": "dollar",
 				"type": "Text"
 			},
-			"cvrnumber": {
-				"__TYPE__": "FieldContent",
-				"value": "silk",
-				"type": "Text"
-			},
-			"companyname": {
-				"__TYPE__": "FieldContent",
-				"value": "handle",
-				"type": "Text"
-			},
 			"address": {
 				"__TYPE__": "FieldContent",
 				"value": "tie",
 				"type": "Text"
 			},
-			"postnocity": {
+			"cvrNumber": {
 				"__TYPE__": "FieldContent",
-				"value": "lead",
+				"value": "pan",
 				"type": "Text"
 			},
-			"companytype": {
+			"companyName": {
 				"__TYPE__": "FieldContent",
-				"value": "enter",
+				"value": "figure",
+				"type": "Text"
+			},
+			"postNoCity": {
+				"__TYPE__": "FieldContent",
+				"value": "men",
+				"type": "Text"
+			},
+			"companyType": {
+				"__TYPE__": "FieldContent",
+				"value": "tax",
+				"type": "Text"
+			},
+			"status": {
+				"__TYPE__": "FieldContent",
+				"value": "lay",
 				"type": "Text"
 			}
 		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"uid",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "what",
-							"type": "Text"
-						}
-					],
-					[
-						"cvrnumber",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "height",
-							"type": "Text"
-						}
-					],
-					[
-						"companyname",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "frog",
-							"type": "Text"
-						}
-					],
-					[
-						"address",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "early",
-							"type": "Text"
-						}
-					],
-					[
-						"postnocity",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "rough",
-							"type": "Text"
-						}
-					],
-					[
-						"companytype",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "other",
-							"type": "Text"
-						}
-					]
-				]
+				"value": []
 			}
 		]
 	}

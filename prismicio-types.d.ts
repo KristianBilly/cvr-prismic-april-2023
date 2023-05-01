@@ -103,21 +103,21 @@ interface CompanySliceDefaultPrimary {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: company.primary.cvrnumber
+   * - **API ID Path**: company.primary.cvrNumber
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  cvrnumber: prismicT.KeyTextField;
+  cvrNumber: prismicT.KeyTextField;
   /**
    * companyName field in *Company → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: company.primary.companyname
+   * - **API ID Path**: company.primary.companyName
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  companyname: prismicT.KeyTextField;
+  companyName: prismicT.KeyTextField;
   /**
    * address field in *Company → Primary*
    *
@@ -133,87 +133,31 @@ interface CompanySliceDefaultPrimary {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: company.primary.postnocity
+   * - **API ID Path**: company.primary.postNoCity
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  postnocity: prismicT.KeyTextField;
+  postNoCity: prismicT.KeyTextField;
   /**
    * companyType field in *Company → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: company.primary.companytype
+   * - **API ID Path**: company.primary.companyType
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  companytype: prismicT.KeyTextField;
-}
-/**
- * Item in Company → Items
- *
- */
-export interface CompanySliceDefaultItem {
+  companyType: prismicT.KeyTextField;
   /**
-   * uid field in *Company → Items*
+   * status field in *Company → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].uid
+   * - **API ID Path**: company.primary.status
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  uid: prismicT.KeyTextField;
-  /**
-   * cvrNumber field in *Company → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].cvrnumber
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  cvrnumber: prismicT.KeyTextField;
-  /**
-   * companyName field in *Company → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].companyname
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  companyname: prismicT.KeyTextField;
-  /**
-   * address field in *Company → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].address
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  address: prismicT.KeyTextField;
-  /**
-   * postNoCity field in *Company → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].postnocity
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  postnocity: prismicT.KeyTextField;
-  /**
-   * companyType field in *Company → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: company.items[].companytype
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  companytype: prismicT.KeyTextField;
+  status: prismicT.KeyTextField;
 }
 /**
  * Default variation for Company Slice
@@ -226,7 +170,7 @@ export interface CompanySliceDefaultItem {
 export type CompanySliceDefault = prismicT.SharedSliceVariation<
   "default",
   Simplify<CompanySliceDefaultPrimary>,
-  Simplify<CompanySliceDefaultItem>
+  never
 >;
 /**
  * Slice variation for *Company*
@@ -553,7 +497,6 @@ declare module "@prismicio/client" {
       LandingPageDocument,
       AllDocumentTypes,
       CompanySliceDefaultPrimary,
-      CompanySliceDefaultItem,
       CompanySliceDefault,
       CompanySliceVariation,
       CompanySlice,

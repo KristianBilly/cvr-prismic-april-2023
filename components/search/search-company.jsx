@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-export const SearchCompany = ({ convertedData, index }) => (
+export const SearchCompany = ({ convertedData, uid }) => (
   <Link
     className="search-company"
-    href={`/company/${index}`}>
+    href={`/company/${uid}`}>
     <article className="search-article">
       {convertedData.map(({ title, paragraphOne, paragraphTwo }, index) => (
         <div

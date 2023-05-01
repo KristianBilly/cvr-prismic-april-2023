@@ -5,7 +5,6 @@ import { API_ENDPOINT } from '../../constants/constants'
 import { createClient } from '../../prismicio'
 import { SliceZone } from '@prismicio/react'
 import { components } from '../../slices'
-import Head from 'next/head'
 
 const Virkopedia = ({ page }) => {
   return (

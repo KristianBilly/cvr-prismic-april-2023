@@ -1,18 +1,12 @@
-import { getConvertedCompanyData } from '../../utils/get-converted-company-data'
-import { CompanyTable } from '../../components/company/company-table'
-import Link from 'next/link'
-import { SEARCH_PATH } from '../../constants/constants'
 import { createClient } from '../../prismicio'
-import { SliceSimulator } from '@prismicio/slice-simulator-react'
 import { SliceZone } from '@prismicio/react'
 import { components } from '../../slices'
 import * as prismicH from '@prismicio/helpers'
 
 const Company = ({ page }) => {
-  console.log('company-page', page)
   return (
     <SliceZone
-      slices={page.data.slice}
+      slices={page.data.slices}
       components={components}
     />
   )
