@@ -4,7 +4,6 @@ import { createClient } from '../../prismicio'
 import { components } from '../../slices'
 
 const SearchWrapper = ({ page }) => {
-  console.log(page)
   return (
     <SliceZone
       slices={page.data.slices}

@@ -1,47 +1,38 @@
 import { getConvertedCompanyData } from '../../utils/get-converted-company-data'
 import { CompanyTable } from '../../components/company/company-table'
 import Link from 'next/link'
-import { API_ENDPOINT, SEARCH_PATH } from '../../constants/constants'
+import { SEARCH_PATH } from '../../constants/constants'
+import { createClient } from '../../prismicio'
+import { SliceSimulator } from '@prismicio/slice-simulator-react'
+import { SliceZone } from '@prismicio/react'
+import { components } from '../../slices'
+import * as prismicH from '@prismicio/helpers'
 
-const Company = ({ selectedCompany }) => {
-  const formattedCompany = getConvertedCompanyData(selectedCompany)
-  const companyName = selectedCompany?.companyName
-
-  if (!formattedCompany) return <h2>No companies found...</h2>
-
+const Company = ({ page }) => {
+  console.log('company-page', page)
   return (
-    <section className="company-page">
-      <Link
-        className="back-to-search"
-        href={SEARCH_PATH}>
-        Back to search
-      </Link>
-      <h2> {companyName} </h2>
-      <CompanyTable company={formattedCompany} />
-    </section>
+    <SliceZone
+      slices={page.data.slice}
+      components={components}
+    />
   )
 }
 
-export const getStaticProps = async ({ params }) => {
-  const res = await fetch(API_ENDPOINT)
-  const data = await res.json()
-
-  const selectedCompany = data?.companiesData[params.uid]
+export async function getStaticProps({ params, previewData }) {
+  const client = createClient({ previewData })
+  const page = await client.getByUID('company_page', params.uid)
 
   return {
     props: {
-      selectedCompany,
+      page,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(API_ENDPOINT)
-  const data = await res.json()
-
-  const paths = data.companiesData.map(({ uid }) => ({
-    params: { uid },
-  }))
+  const client = createClient()
+  const pages = await client.getAllByType('company_page')
+  const paths = pages.map((page) => prismicH.asLink(page))
 
   return {
     paths: paths,

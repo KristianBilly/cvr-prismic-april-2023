@@ -39,7 +39,7 @@ type CompanyPageDocumentDataSlicesSlice =
  * @typeParam Lang - Language API ID of the document.
  */
 export type CompanyPageDocument<Lang extends string = string> =
-  prismicT.PrismicDocumentWithoutUID<
+  prismicT.PrismicDocumentWithUID<
     Simplify<CompanyPageDocumentData>,
     "company_page",
     Lang
